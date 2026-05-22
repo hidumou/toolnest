@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Base64 编解码 — ToolNest</title>
+  <meta name="description" content="文本与 Base64 互转，支持 UTF-8 / URL-safe。浏览器本地运行，不上传服务器。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/styles/tokens.css">
+  <link rel="stylesheet" href="/src/styles/base.css">
+  <link rel="stylesheet" href="/src/styles/components.css">
+  <link rel="stylesheet" href="/src/styles/home.css">
+  <link rel="stylesheet" href="/src/styles/base64.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <main class="tool-page" id="app">
+    <h1 class="tool-h1">Base64 编解码</h1>
+    <p class="tool-lede">文本 ↔ Base64 双向转换，支持 UTF-8 与 URL-safe；同样支持文件 → Base64 / Base64 → 文件。</p>
+
+    <div class="toolbar">
+      <div class="seg" id="mode-seg">
+        <button type="button" data-mode="text" class="active">文本</button>
+        <button type="button" data-mode="file">文件</button>
+      </div>
+      <label style="display:inline-flex;gap:6px;align-items:center;cursor:pointer;">
+        <input type="checkbox" id="urlsafe" data-testid="tn-urlsafe-toggle" class="tn-check"> URL-safe
+      </label>
+    </div>
+
+    <section id="pane-text">
+      <div class="toolbar">
+        <button class="btn btn-primary" id="t-encode">编码</button>
+        <button class="btn" id="t-decode">解码</button>
+        <button class="btn" id="t-auto">自动判别</button>
+        <button class="btn" id="t-swap">⇅ 交换</button>
+        <button class="btn" id="t-copy">复制结果</button>
+        <button class="btn btn-ghost" id="t-clear">清空</button>
+        <button class="btn btn-ghost" id="t-example">示例</button>
+      </div>
+      <div class="b64-grid">
+        <div class="b64-pane">
+          <h4>输入</h4>
+          <textarea id="t-in" data-testid="tn-input-textarea" class="hc-input" spellcheck="false" placeholder="粘贴文本或 Base64..."></textarea>
+        </div>
+        <div class="b64-pane">
+          <h4>输出</h4>
+          <textarea id="t-out" data-testid="tn-output" class="hc-input" spellcheck="false" placeholder="结果..."></textarea>
+        </div>
+      </div>
+    </section>
+
+    <section id="pane-file" hidden>
+      <div class="b64-grid">
+        <div class="b64-pane">
+          <h4>文件 → Base64</h4>
+          <div class="upload-zone" id="zone-enc">
+            拖入文件，或 <b>点击选择</b>
+            <input type="file" id="f-in" hidden>
+          </div>
+          <div class="file-meta" id="f-meta" hidden>
+            <span class="name" id="f-name">—</span>
+            <span id="f-size"></span>
+            <span id="f-type"></span>
+          </div>
+          <div class="toolbar" style="margin-top:12px">
+            <button class="btn btn-primary" id="f-encode">编码并复制</button>
+          </div>
+          <textarea id="f-out" class="hc-input" spellcheck="false" placeholder="文件 Base64 输出..." style="margin-top:10px"></textarea>
+        </div>
+        <div class="b64-pane">
+          <h4>Base64 → 文件</h4>
+          <textarea id="d-in" class="hc-input" spellcheck="false" placeholder="粘贴 Base64..."></textarea>
+          <div class="toolbar" style="margin-top:12px">
+            <button class="btn btn-primary" id="d-decode">解码 + 嗅探类型</button>
+            <button class="btn" id="d-download" disabled>下载</button>
+          </div>
+          <div class="file-meta" id="d-meta" hidden>
+            <span class="name" id="d-name">—</span>
+            <span id="d-size"></span>
+            <span id="d-mime"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+  <script type="module" src="/src/pages/base64/main.ts"></script>
+</body>
+</html>

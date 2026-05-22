@@ -1,0 +1,145 @@
+/* JSON 工具页样式 */
+
+.json-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+@media (max-width: 880px) {
+  .json-grid { grid-template-columns: 1fr; }
+}
+
+.json-pane {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 440px;
+  /* 关键：grid 子项默认 min-width: auto，长内容会撑破 1fr。
+     设为 0 让两列严格按 1fr 分配。 */
+  min-width: 0;
+}
+
+.json-pane-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.json-pane h4 {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0;
+}
+
+.json-mini-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: 6px;
+  padding: 3px 9px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.12s ease, box-shadow 0.12s ease;
+}
+.json-mini-btn:hover { background: var(--cream-2); box-shadow: 2px 2px 0 var(--ink); }
+.json-mini-btn.ok { background: var(--green-soft); color: var(--green-deep); border-color: var(--green-deep); }
+
+.json-input {
+  width: 100%;
+  min-width: 0;
+  min-height: 440px;
+  background: var(--cream-2);
+  border: var(--stroke) solid var(--ink);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ink);
+  resize: vertical;
+  outline: none;
+  white-space: pre;
+  tab-size: 2;
+  box-sizing: border-box;
+}
+.json-input:focus {
+  background: var(--paper);
+  box-shadow: var(--shadow-soft);
+}
+.json-input.has-error {
+  border-color: var(--peach-deep);
+}
+
+.json-output {
+  flex: 1;
+  min-width: 0;
+  background: var(--paper);
+  border: var(--stroke) solid var(--ink);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.55;
+  overflow: auto;
+  white-space: pre;
+  margin: 0;
+  min-height: 440px;
+  box-sizing: border-box;
+}
+
+.json-foot {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 14px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+input[type="checkbox"].tn-check {
+  accent-color: var(--green-deep);
+  width: 16px;
+  height: 16px;
+}
+
+/* —— 可折叠 JSON 节点 —— */
+/* .jn 在结构上是 inline span：保证 textContent 等于格式化后的 JSON。 */
+.jn { /* inline */ }
+
+.jn-toggle {
+  display: inline-block;
+  width: 12px;
+  margin-right: 1px;
+  color: var(--muted);
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+  font-size: 9px;
+  vertical-align: 1px;
+  /* 内容由 ::before 注入，避免污染 textContent */
+}
+.jn-toggle::before { content: "▾"; }
+.jn[data-collapsed="true"] > .jn-toggle::before { content: "▸"; }
+.jn-toggle:hover { color: var(--ink); }
+
+.jn-ellipsis {
+  display: none;
+  color: var(--muted);
+  padding: 0 4px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.jn-ellipsis::before { content: "…"; }
+.jn-ellipsis:hover { background: var(--cream-2); color: var(--ink); }
+.jn[data-collapsed="true"] > .jn-ellipsis { display: inline; }
+.jn[data-collapsed="true"] > .jn-body { display: none; }

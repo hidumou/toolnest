@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>JWT 解码 — ToolNest</title>
+  <meta name="description" content="JWT header / payload 解码 + 过期校验，浏览器本地解析，绝不上传服务器。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/styles/tokens.css">
+  <link rel="stylesheet" href="/src/styles/base.css">
+  <link rel="stylesheet" href="/src/styles/components.css">
+  <link rel="stylesheet" href="/src/styles/home.css">
+  <link rel="stylesheet" href="/src/styles/jwt.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <main class="tool-page" id="app">
+    <h1 class="tool-h1">JWT 解码</h1>
+    <p class="tool-lede">粘贴 JWT，本地拆解 header / payload，并把 iat / nbf / exp 转成人类可读时间。当前版本不做签名校验。</p>
+
+    <div class="toolbar">
+      <button class="btn btn-primary" id="j-example">示例 JWT</button>
+      <button class="btn" id="j-copy-h">复制 Header JSON</button>
+      <button class="btn" id="j-copy-p">复制 Payload JSON</button>
+      <button class="btn btn-ghost" id="j-clear">清空</button>
+    </div>
+
+    <textarea id="jwt-in" data-testid="tn-jwt-input" class="hc-input jwt-input" spellcheck="false" placeholder="eyJhbGci...   粘贴完整 JWT，三段以 . 分隔"></textarea>
+    <div id="jwt-err" class="err-banner" style="margin-top:12px" hidden></div>
+
+    <div class="jwt-grid">
+      <section class="jwt-card h-card">
+        <h3>Header</h3>
+        <div id="alg-callout" data-testid="tn-jwt-alg" class="alg-callout">—</div>
+        <pre id="header-json" data-testid="tn-jwt-header" class="jwt-json">—</pre>
+      </section>
+      <section class="jwt-card p-card">
+        <h3>Payload</h3>
+        <div id="payload-times"></div>
+        <pre id="payload-json" data-testid="tn-jwt-payload" class="jwt-json">—</pre>
+      </section>
+      <section class="jwt-card s-card">
+        <h3>Signature</h3>
+        <div id="sig-raw" data-testid="tn-jwt-signature" class="sig-raw">—</div>
+        <div class="unverified-note" data-testid="tn-jwt-sig-status">v1：本工具仅做 base64 解码，<b>签名未校验（未验证）</b>。</div>
+      </section>
+    </div>
+  </main>
+  <div id="site-footer"></div>
+  <script type="module" src="/src/pages/jwt/main.ts"></script>
+</body>
+</html>

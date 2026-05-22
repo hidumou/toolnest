@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ToolNest · 每天都用得上的小工具合集</title>
+  <meta name="description" content="ToolNest（工具巢）：浏览器即开即用的实用小工具集合，本地处理，免登录、无广告。包含时间戳、JSON 格式化、图片去水印、Base64、URL、JWT 等。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/styles/tokens.css">
+  <link rel="stylesheet" href="/src/styles/base.css">
+  <link rel="stylesheet" href="/src/styles/components.css">
+  <link rel="stylesheet" href="/src/styles/home.css">
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<header class="wrap hero">
+  <div>
+    <span class="badge"><span class="dot"></span>6 款已上线 · 持续更新中</span>
+    <h1 class="headline">每天都用得上的<br><span class="accent">小工具</span>合集 ✨</h1>
+    <p class="lede">日期换算、图片去水印、JSON 格式化、Base64、URL、JWT…常用小工具集成在一处，浏览器即开即用，免登录、无广告。</p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary btn-lg" href="#tools">开始使用 <span class="arrow">→</span></a>
+      <a class="btn btn-lg" href="#tools">浏览全部工具</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="num">6+</div><div class="lbl">已上线工具</div></div>
+      <div class="stat"><div class="num">100%</div><div class="lbl">本地处理</div></div>
+      <div class="stat"><div class="num">0¥</div><div class="lbl">完全免费</div></div>
+    </div>
+  </div>
+  <div class="hero-card-wrap">
+    <div class="hero-card">
+      <div class="hc-row">
+        <div class="hc-icon" data-icon="calendar"></div>
+        <div>
+          <div class="hc-title">日期 / 时间戳转换</div>
+          <div class="hc-meta">支持 Unix · ISO · 自然语言</div>
+        </div>
+      </div>
+      <div class="hc-input-row">
+        <span class="label">输入</span>
+        <span>1730419200</span>
+      </div>
+      <div class="hc-arrow" data-icon="arrowD"></div>
+      <div class="hc-result">
+        <span>北京时间</span>
+        <b>2024-11-01 08:00</b>
+      </div>
+      <a class="hc-btn" href="/timestamp/"><span data-icon="bolt"></span> 立即转换</a>
+
+      <div class="float float-a" data-icon="image"></div>
+      <div class="float float-b" data-icon="hash"></div>
+      <div class="float float-c"><span data-icon="flame"></span> 热门</div>
+    </div>
+  </div>
+</header>
+
+<section class="tools" id="tools">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="pill"><span data-icon="search"></span> 工具库</span>
+      <h2 class="section-title">挑一个，立刻开干</h2>
+      <p class="section-sub">所有工具都在浏览器本地运行，不上传服务器，不留存数据。复制走、关掉，世界依旧干净。</p>
+    </div>
+
+    <div class="cats" id="categories">
+      <button class="cat active" type="button" data-cat="all">全部<span class="count">6</span></button>
+      <button class="cat" type="button" data-cat="dev">开发<span class="count">4</span></button>
+      <button class="cat" type="button" data-cat="image">图像<span class="count">1</span></button>
+      <button class="cat" type="button" data-cat="security">安全<span class="count">1</span></button>
+    </div>
+
+    <div class="grid">
+
+      <a class="card" href="/timestamp/" data-category="dev">
+        <div class="card-top">
+          <div class="card-icon ic-blue" data-icon="calendar"></div>
+          <span class="tag"><span class="tdot"></span>常用</span>
+        </div>
+        <h3>Unix 时间戳互转</h3>
+        <p class="desc">Unix 时间戳、ISO、自然语言一键互转，含时区</p>
+        <div class="card-foot">
+          <div class="meta">
+            <span><span data-icon="users"></span>常用</span>
+            <span><span data-icon="bolt"></span>即时</span>
+          </div>
+          <div class="card-arrow" data-icon="arrowR"></div>
+        </div>
+      </a>
+
+      <a class="card" href="/watermark/" data-category="image">
+        <div class="card-top">
+          <div class="card-icon ic-peach" data-icon="image"></div>
+          <span class="tag hot"><span class="tdot"></span>热门</span>
+        </div>
+        <h3>豆包图片去水印</h3>
+        <p class="desc">智能擦除图片中的文字、Logo、瑕疵，浏览器本地处理</p>
+        <div class="card-foot">
+          <div class="meta">
+            <span><span data-icon="shield"></span>本地</span>
+            <span><span data-icon="bolt"></span>~5s</span>
+          </div>
+          <div class="card-arrow" data-icon="arrowR"></div>
+        </div>
+      </a>
+
+      <a class="card" href="/json/" data-category="dev">
+        <div class="card-top">
+          <div class="card-icon ic-lilac" data-icon="json"></div>
+          <span class="tag"><span class="tdot"></span>常用</span>
+        </div>
+        <h3>JSON 格式化</h3>
+        <p class="desc">美化、压缩、转义、语法高亮，错误自动定位</p>
+        <div class="card-foot">
+          <div class="meta">
+            <span><span data-icon="users"></span>常用</span>
+            <span><span data-icon="bolt"></span>即时</span>
+          </div>
+          <div class="card-arrow" data-icon="arrowR"></div>
+        </div>
+      </a>
+
+      <a class="card" href="/base64/" data-category="dev">
+        <div class="card-top">
+          <div class="card-icon ic-cream" data-icon="code"></div>
+          <span class="tag"><span class="tdot"></span>常用</span>
+        </div>
+        <h3>Base64 编解码</h3>
+        <p class="desc">文本与 Base64 互转，支持 UTF-8 / URL-safe</p>
+        <div class="card-foot">
+          <div class="meta">
+            <span><span data-icon="bolt"></span>即时</span>
+          </div>
+          <div class="card-arrow" data-icon="arrowR"></div>
+        </div>
+      </a>
+
+      <a class="card" href="/url/" data-category="dev">
+        <div class="card-top">
+          <div class="card-icon ic-green" data-icon="link"></div>
+          <span class="tag"><span class="tdot"></span>常用</span>
+        </div>
+        <h3>URL 编解码</h3>
+        <p class="desc">encodeURIComponent / decodeURIComponent，解析 query</p>
+        <div class="card-foot">
+          <div class="meta">
+            <span><span data-icon="bolt"></span>即时</span>
+          </div>
+          <div class="card-arrow" data-icon="arrowR"></div>
+        </div>
+      </a>
+
+      <a class="card" href="/jwt/" data-category="security">
+        <div class="card-top">
+          <div class="card-icon ic-amber" data-icon="lock"></div>
+          <span class="tag new"><span class="tdot"></span>新</span>
+        </div>
+        <h3>JWT 解码</h3>
+        <p class="desc">解码 JWT header / payload，本地解析，不发送服务器</p>
+        <div class="card-foot">
+          <div class="meta">
+            <span><span data-icon="shield"></span>本地</span>
+            <span><span data-icon="bolt"></span>即时</span>
+          </div>
+          <div class="card-arrow" data-icon="arrowR"></div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section class="changelog-sec" id="changelog">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="pill"><span data-icon="bolt"></span> 更新日志</span>
+      <h2 class="section-title">站点更新日志</h2>
+      <p class="section-sub">记录 ToolNest 上线以来的每一次迭代。倒序排列，最近的版本在最上。</p>
+    </div>
+
+    <ol class="cl-list">
+      <li class="cl-entry latest">
+        <div class="cl-side">
+          <div class="cl-ver">v0.7</div>
+          <div class="cl-date">2026-05-12</div>
+          <span class="cl-tag">最新</span>
+        </div>
+        <div class="cl-body">
+          <h3 class="cl-title">站点清理与体验优化</h3>
+          <ul>
+            <li>移除全部失效链接（登录、社交、关于/隐私/条款占位页）</li>
+            <li>删除 6 张「即将上线」占位卡片，避免误导</li>
+            <li>分类筛选改造为真功能，点击即可过滤工具卡</li>
+            <li>PICK 推荐区改为真实「更新日志」</li>
+            <li>修正过期版权（2025 → 当前年份），删除内部版本标记</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="cl-entry">
+        <div class="cl-side">
+          <div class="cl-ver">v0.6</div>
+          <div class="cl-date">JWT 上线</div>
+        </div>
+        <div class="cl-body">
+          <h3 class="cl-title">JWT 解码工具</h3>
+          <ul>
+            <li>本地拆解 JWT header / payload 三段</li>
+            <li>iat / nbf / exp 自动换算为人类可读时间</li>
+            <li>签名暂不校验，明确标注「未验证」状态</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="cl-entry">
+        <div class="cl-side">
+          <div class="cl-ver">v0.5</div>
+          <div class="cl-date">URL 上线</div>
+        </div>
+        <div class="cl-body">
+          <h3 class="cl-title">URL 编解码工具</h3>
+          <ul>
+            <li>encodeURIComponent / encodeURI 双模式切换</li>
+            <li>批量按行编解码，空行保留</li>
+            <li>完整 URL 自动拆解为 protocol / host / path / query 表格</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="cl-entry">
+        <div class="cl-side">
+          <div class="cl-ver">v0.4</div>
+          <div class="cl-date">Base64 上线</div>
+        </div>
+        <div class="cl-body">
+          <h3 class="cl-title">Base64 编解码工具</h3>
+          <ul>
+            <li>文本 ↔ Base64 双向转换，UTF-8 安全</li>
+            <li>URL-safe 变体支持</li>
+            <li>文件 → Base64 与 Base64 → 文件 双向直转，自动嗅探 MIME</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="cl-entry">
+        <div class="cl-side">
+          <div class="cl-ver">v0.3</div>
+          <div class="cl-date">JSON 上线</div>
+        </div>
+        <div class="cl-body">
+          <h3 class="cl-title">JSON 格式化工具</h3>
+          <ul>
+            <li>美化 / 压缩 / 键排序 / 转义 / 反转义</li>
+            <li>错误自动定位，可调缩进（2 / 4 / Tab）</li>
+            <li>支持粘贴自动美化、⌘/Ctrl + B、⌘/Ctrl + M 快捷键</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="cl-entry">
+        <div class="cl-side">
+          <div class="cl-ver">v0.2</div>
+          <div class="cl-date">去水印上线</div>
+        </div>
+        <div class="cl-body">
+          <h3 class="cl-title">豆包图片去水印</h3>
+          <ul>
+            <li>手动框选 / 自动扫描 / 灰白文字 三种擦除策略</li>
+            <li>处理前后滑动对比，原始分辨率导出 PNG</li>
+            <li>全程浏览器本地处理，不上传任何字节</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="cl-entry">
+        <div class="cl-side">
+          <div class="cl-ver">v0.1</div>
+          <div class="cl-date">首发</div>
+        </div>
+        <div class="cl-body">
+          <h3 class="cl-title">站点脚手架与时间戳互转</h3>
+          <ul>
+            <li>Unix 时间戳 ↔ ISO 8601 ↔ 自然语言时间互转</li>
+            <li>多时区切换、当前时间实时刷新</li>
+            <li>建立站点视觉系统与工具页通用框架</li>
+          </ul>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script type="module" src="/src/main.ts"></script>
+
+</body>
+</html>

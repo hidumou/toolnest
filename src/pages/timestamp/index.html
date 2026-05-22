@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Unix 时间戳互转 — ToolNest</title>
+  <meta name="description" content="Unix 时间戳与 ISO 8601、自然语言时间相互转换。浏览器本地运行，免登录、无广告。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/styles/tokens.css">
+  <link rel="stylesheet" href="/src/styles/base.css">
+  <link rel="stylesheet" href="/src/styles/components.css">
+  <link rel="stylesheet" href="/src/styles/home.css">
+  <link rel="stylesheet" href="/src/styles/timestamp.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <main class="tool-page" id="app">
+    <h1 class="tool-h1">Unix 时间戳互转</h1>
+    <p class="tool-lede">Unix 秒 / 毫秒 ↔ ISO 8601 ↔ 自然语言时间，含时区。所有计算在浏览器本地完成。</p>
+
+    <div class="ts-now-bar">
+      <button id="now-toggle" data-testid="tn-now-btn" class="btn btn-primary" type="button">⏵ 实时刷新</button>
+      <div class="ts-now-clock" id="now-clock">—</div>
+      <div class="ts-now-rel" id="now-rel"></div>
+    </div>
+
+    <div class="ts-grid">
+      <section class="ts-card" aria-label="Unix 输入">
+        <h3>Unix 时间戳</h3>
+        <div class="ts-row">
+          <div class="seg" id="unit-seg" data-testid="tn-unit-segmented" role="tablist">
+            <button type="button" data-unit="s" class="active">秒 (s)</button>
+            <button type="button" data-unit="ms">毫秒 (ms)</button>
+          </div>
+          <span class="ts-now-rel">单位会自动检测，可手动覆盖</span>
+        </div>
+        <div class="ts-input-row">
+          <input id="unix-input" data-testid="tn-unix-input" class="hc-input" type="text" inputmode="numeric" placeholder="例：1715500000">
+        </div>
+        <div class="ts-output">
+          <span class="v" id="unix-echo">—</span>
+          <button class="copy" data-testid="tn-copy-btn" data-copy="unix">复制</button>
+        </div>
+        <div class="ts-human" id="human-line">—</div>
+      </section>
+
+      <section class="ts-card" aria-label="日期 / 时区">
+        <h3>日期 + 时区</h3>
+        <div class="ts-row">
+          <select id="tz-select" data-testid="tn-tz-select" class="hc-input" style="max-width:260px"></select>
+        </div>
+        <div class="ts-input-row">
+          <input id="dt-input" class="hc-input" type="datetime-local" step="1">
+        </div>
+        <div class="ts-output">
+          <span class="v" id="iso-out">—</span>
+          <button class="copy" data-copy="iso">复制 ISO</button>
+        </div>
+        <div class="ts-output">
+          <span class="v" id="local-out" data-testid="tn-date-output">—</span>
+          <button class="copy" data-copy="local">复制本地</button>
+        </div>
+      </section>
+    </div>
+  </main>
+  <div id="site-footer"></div>
+  <script type="module" src="/src/pages/timestamp/main.ts"></script>
+</body>
+</html>

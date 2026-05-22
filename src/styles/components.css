@@ -1,0 +1,306 @@
+/* ToolNest 通用组件类 —— 沿用奶油底 + 1.5px ink 边 + 硬阴影 hover */
+
+/* 按钮 */
+.btn {
+  border: var(--stroke) solid var(--ink);
+  border-radius: var(--radius-sm);
+  padding: 9px 16px;
+  font-weight: 600;
+  font-size: 14px;
+  background: var(--paper);
+  color: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+}
+.btn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.btn-ghost {
+  border-color: transparent;
+  background: transparent;
+}
+.btn-ghost:hover {
+  box-shadow: none;
+  background: var(--cream-2);
+}
+
+.btn-primary {
+  background: var(--green);
+  color: #fff;
+  box-shadow: var(--shadow-soft);
+}
+.btn-primary:hover {
+  background: var(--green-deep);
+}
+
+.btn-lg {
+  padding: 12px 22px;
+  font-size: 15px;
+  border-radius: var(--radius-md);
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform 0.12s ease;
+}
+.btn:hover .arrow {
+  transform: translateX(3px);
+}
+
+/* 卡片 */
+.card {
+  background: var(--paper);
+  border: var(--stroke) solid var(--ink);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  min-height: 200px;
+  color: var(--ink);
+  text-align: left;
+}
+.card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--ink);
+}
+.card.card-disabled {
+  cursor: not-allowed;
+  opacity: 0.62;
+  pointer-events: none;
+}
+.card h3 {
+  font-size: 16.5px;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.005em;
+}
+.card .desc {
+  font-size: 13.5px;
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* 胶囊标签 */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: var(--blue-soft);
+  color: var(--blue-deep);
+  border: var(--stroke) solid var(--ink);
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 12.5px;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  border: var(--stroke) solid var(--ink);
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 700;
+  background: var(--green-soft);
+  color: var(--green-deep);
+}
+.tag.hot {
+  background: var(--peach-soft);
+  color: var(--peach-deep);
+}
+.tag.new {
+  background: var(--blue-soft);
+  color: var(--blue-deep);
+}
+.tag.beta {
+  background: var(--lilac);
+  color: var(--lilac-deep);
+}
+.tag.soon {
+  background: var(--cream-2);
+  color: var(--muted);
+}
+.tag .tdot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* 输入 / textarea —— 通用 hc-input */
+.hc-input {
+  width: 100%;
+  background: var(--cream-2);
+  border: var(--stroke) solid var(--ink);
+  border-radius: var(--radius-sm);
+  padding: 11px 12px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--ink-2);
+  outline: none;
+  transition: box-shadow 0.12s ease, background 0.12s ease;
+}
+.hc-input:focus {
+  background: var(--paper);
+  box-shadow: var(--shadow-soft);
+}
+textarea.hc-input {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.55;
+}
+
+/* 工具页通用容器 */
+.tool-page {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 56px 28px 96px;
+}
+.tool-h1 {
+  font-size: 42px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0 0 8px;
+}
+.tool-lede {
+  color: var(--muted);
+  font-size: 16px;
+  margin: 0 0 32px;
+  line-height: 1.55;
+}
+.tool-page > h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+.tool-page > p {
+  color: var(--muted);
+  margin-bottom: 32px;
+  font-size: 15px;
+}
+
+/* segmented control */
+.seg {
+  display: inline-flex;
+  border: var(--stroke) solid var(--ink);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--paper);
+}
+.seg button {
+  border: 0;
+  background: transparent;
+  padding: 8px 14px;
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--ink-2);
+  border-right: var(--stroke) solid var(--ink);
+}
+.seg button:last-child { border-right: 0; }
+.seg button.active {
+  background: var(--ink);
+  color: var(--cream);
+}
+.seg button:hover:not(.active) { background: var(--cream-2); }
+
+/* 工具栏 */
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+/* 双栏 grid */
+.split-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+@media (max-width: 880px) {
+  .split-2 { grid-template-columns: 1fr; }
+}
+
+/* 错误条 */
+.err-banner {
+  background: var(--peach-soft);
+  color: var(--peach-deep);
+  border: var(--stroke) solid var(--ink);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+/* 复制按钮成功闪一下 */
+.btn.copy-ok {
+  background: var(--green);
+  color: #fff;
+  transition: background 0.15s ease;
+}
+
+/* JSON 高亮 token 颜色 */
+.tk-key    { color: var(--blue-deep); font-weight: 600; }
+.tk-string { color: var(--green-deep); }
+.tk-number { color: #C2410C; }
+.tk-bool   { color: var(--lilac-deep); font-weight: 600; }
+.tk-null   { color: var(--muted); font-style: italic; }
+.tk-punct  { color: var(--ink-2); }
+
+/* 通用 pre 代码块 */
+.code-block {
+  background: var(--cream-2);
+  border: var(--stroke) solid var(--ink);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  white-space: pre;
+  overflow: auto;
+  margin: 0;
+}
+
+/* Toast */
+.tn-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 36px;
+  transform: translateX(-50%) translateY(8px);
+  background: var(--cream);
+  color: var(--ink);
+  border: var(--stroke) solid var(--ink);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-mid);
+  padding: 12px 18px;
+  font-weight: 600;
+  font-size: 14px;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+  max-width: min(420px, calc(100vw - 32px));
+}
+.tn-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+.tn-toast.err {
+  background: var(--peach-soft);
+  color: var(--peach-deep);
+}
+.tn-toast.ok {
+  background: var(--green-soft);
+  color: var(--green-deep);
+}

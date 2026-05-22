@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>豆包图片去水印 — ToolNest</title>
+  <meta name="description" content="浏览器本地运行的图片去水印工具：拖入图片、框选水印区域，5 秒内输出干净成品。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/styles/tokens.css">
+  <link rel="stylesheet" href="/src/styles/base.css">
+  <link rel="stylesheet" href="/src/styles/components.css">
+  <link rel="stylesheet" href="/src/styles/home.css">
+  <link rel="stylesheet" href="/src/styles/watermark.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <main class="tool-page" id="app">
+    <h1 class="tool-h1">豆包图片去水印</h1>
+    <p class="tool-lede">拖入图片、选择策略、必要时框选区域。图像处理完全在浏览器本地完成，不上传任何字节。</p>
+
+    <div class="wm-grid">
+      <aside class="wm-panel">
+        <div>
+          <h4>1. 选择图片</h4>
+          <div class="upload-zone" id="wm-zone">
+            拖拽 / 点击 / 粘贴
+            <small>支持 PNG / JPG / WebP；保留透明通道</small>
+            <input type="file" id="wm-file" data-testid="tn-file-input" accept="image/*" hidden>
+          </div>
+        </div>
+
+        <div>
+          <h4>2. 模式</h4>
+          <div class="seg" id="mode-seg" data-testid="tn-mode-segmented" style="display:flex;flex-direction:column;">
+            <button type="button" data-mode="box" class="active">手动框选</button>
+            <button type="button" data-mode="auto">自动扫描</button>
+            <button type="button" data-mode="grey">灰白文字 (grey)</button>
+          </div>
+        </div>
+
+        <div>
+          <h4>3. 角落</h4>
+          <div class="corner-grid" id="corner-grid">
+            <button type="button" data-c="tl">↖ 左上</button>
+            <button type="button" data-c="tr">↗ 右上</button>
+            <button type="button" data-c="bl">↙ 左下</button>
+            <button type="button" data-c="br" class="active">↘ 右下</button>
+          </div>
+        </div>
+
+        <div class="slider-row">
+          <label>覆盖比例 <span id="pct-v">20%</span></label>
+          <input type="range" id="pct" min="5" max="50" value="20" step="1">
+        </div>
+        <div class="slider-row" id="auto-row" hidden>
+          <label>颜色差阈值 <span id="th-v">30</span></label>
+          <input type="range" id="th" min="5" max="120" value="30">
+        </div>
+        <div class="slider-row" id="grey-row1" hidden>
+          <label>最小亮度 <span id="mb-v">30</span></label>
+          <input type="range" id="mb" min="0" max="255" value="30">
+        </div>
+        <div class="slider-row" id="grey-row2" hidden>
+          <label>最大饱和度 <span id="ms-v">40</span></label>
+          <input type="range" id="ms" min="0" max="255" value="40">
+        </div>
+
+        <button class="btn" id="wm-process" data-testid="tn-process-btn">立即处理</button>
+        <button class="btn btn-primary" id="wm-download" data-testid="tn-download-btn" disabled>下载 PNG</button>
+      </aside>
+
+      <section class="wm-stage" id="wm-stage">
+        <div class="empty-stage" id="wm-empty">先在左侧选择一张图片</div>
+        <div id="wm-canvas-wrap" style="position:relative;display:none">
+          <div class="compare-wrap" id="compare-wrap">
+            <canvas id="wm-before"></canvas>
+            <canvas id="wm-after" class="layer-after"></canvas>
+            <div class="compare-handle" id="compare-handle"></div>
+            <div class="sel-overlay" id="sel-overlay" hidden></div>
+            <div class="busy-overlay" id="busy" hidden>处理中…</div>
+          </div>
+          <p style="color:var(--muted);font-size:12.5px;margin-top:8px">
+            手动模式下，在预览上按住鼠标拖出矩形即可框选水印区域。
+            拖动绿色把手对比处理前后。
+          </p>
+        </div>
+        <!-- 全分辨率结果 canvas：测试与下载都从这里取数据 -->
+        <canvas id="wm-result-canvas" data-testid="tn-result-canvas" style="position:absolute;left:-99999px;top:-99999px;width:1px;height:1px;visibility:hidden" aria-hidden="true"></canvas>
+      </section>
+    </div>
+  </main>
+  <div id="site-footer"></div>
+  <script type="module" src="/src/pages/watermark/main.ts"></script>
+</body>
+</html>

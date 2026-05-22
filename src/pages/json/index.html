@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>JSON 格式化 — ToolNest</title>
+  <meta name="description" content="JSON 美化、压缩、转义、语法高亮、错误定位。浏览器本地运行，不上传任何数据。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/styles/tokens.css">
+  <link rel="stylesheet" href="/src/styles/base.css">
+  <link rel="stylesheet" href="/src/styles/components.css">
+  <link rel="stylesheet" href="/src/styles/home.css">
+  <link rel="stylesheet" href="/src/styles/json.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <main class="tool-page" id="app">
+    <h1 class="tool-h1">JSON 格式化</h1>
+    <p class="tool-lede">美化、压缩、键排序、转义。语法高亮 + 错误自动定位，全部本地处理。</p>
+
+    <div class="toolbar">
+      <button class="btn btn-primary" id="btn-format" data-testid="tn-beautify-btn">美化</button>
+      <button class="btn" id="btn-minify" data-testid="tn-minify-btn">压缩</button>
+      <button class="btn" id="btn-sort">排序键</button>
+      <button class="btn" id="btn-escape">转义为字符串</button>
+      <button class="btn" id="btn-unescape">反转义</button>
+      <button class="btn" id="btn-copy">复制结果</button>
+      <button class="btn btn-ghost" id="btn-expand-all">全部展开</button>
+      <button class="btn btn-ghost" id="btn-collapse-all">全部折叠</button>
+      <button class="btn btn-ghost" id="btn-clear">清空</button>
+      <button class="btn btn-ghost" id="btn-example">示例</button>
+      <span style="flex:1"></span>
+      <div class="seg" id="indent-seg" aria-label="缩进">
+        <button type="button" data-indent="2" class="active">2 空格</button>
+        <button type="button" data-indent="4">4 空格</button>
+        <button type="button" data-indent="tab">Tab</button>
+      </div>
+    </div>
+
+    <div id="err-banner" data-testid="tn-error-bar" class="err-banner" hidden></div>
+
+    <div class="json-grid">
+      <div class="json-pane">
+        <div class="json-pane-head">
+          <h4>输入</h4>
+        </div>
+        <textarea id="json-input" data-testid="tn-input-textarea" class="json-input" spellcheck="false" placeholder='在此粘贴 JSON，例如：{"name":"ToolNest","ok":true}'></textarea>
+      </div>
+      <div class="json-pane">
+        <div class="json-pane-head">
+          <h4>输出</h4>
+          <button type="button" id="btn-copy-out" class="json-mini-btn" title="复制输出">复制</button>
+        </div>
+        <pre id="json-output" data-testid="tn-output" class="json-output" aria-live="polite"></pre>
+      </div>
+    </div>
+
+    <div class="json-foot">
+      <label style="display:inline-flex;gap:6px;align-items:center;cursor:pointer;">
+        <input type="checkbox" id="auto-paste" class="tn-check" checked>
+        粘贴时自动美化
+      </label>
+      <span>快捷键：<b>⌘/Ctrl + B</b> 美化　<b>⌘/Ctrl + M</b> 压缩</span>
+    </div>
+  </main>
+  <div id="site-footer"></div>
+  <script type="module" src="/src/pages/json/main.ts"></script>
+</body>
+</html>

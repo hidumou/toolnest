@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>URL 编解码 — ToolNest</title>
+  <meta name="description" content="encodeURIComponent / decodeURIComponent，解析 query 参数。浏览器本地运行。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/styles/tokens.css">
+  <link rel="stylesheet" href="/src/styles/base.css">
+  <link rel="stylesheet" href="/src/styles/components.css">
+  <link rel="stylesheet" href="/src/styles/home.css">
+  <link rel="stylesheet" href="/src/styles/url.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <main class="tool-page" id="app">
+    <h1 class="tool-h1">URL 编解码</h1>
+    <p class="tool-lede">encode / decode URI 组件、批量按行处理，并把整条 URL 拆成 protocol、host、path、query 表格。</p>
+
+    <div class="toolbar">
+      <div class="seg" id="fn-seg" aria-label="编码方式">
+        <button type="button" data-fn="C" class="active">encodeURIComponent</button>
+        <button type="button" data-fn="U">encodeURI</button>
+      </div>
+      <div class="seg" id="batch-seg" data-testid="tn-batch-toggle" aria-label="模式">
+        <button type="button" data-b="single" class="active">单行</button>
+        <button type="button" data-b="batch">批量</button>
+      </div>
+    </div>
+
+    <div class="toolbar">
+      <button class="btn btn-primary" id="u-encode" data-testid="tn-encode-btn">编码 (encodeURIComponent)</button>
+      <button class="btn" id="u-encode-uri" data-testid="tn-encode-uri-btn">编码 (encodeURI)</button>
+      <button class="btn" id="u-decode" data-testid="tn-decode-btn">解码</button>
+      <button class="btn" id="u-auto">自动判别</button>
+      <button class="btn" id="u-swap">⇅ 交换</button>
+      <button class="btn" id="u-copy">复制结果</button>
+      <button class="btn btn-ghost" id="u-clear">清空</button>
+    </div>
+
+    <div class="url-grid">
+      <div class="url-pane">
+        <h4>输入</h4>
+        <textarea id="u-in" data-testid="tn-input-textarea" class="hc-input" spellcheck="false" placeholder="例：https://example.com/搜索?q=你好（批量模式下每行一个，空行保留）"></textarea>
+      </div>
+      <div class="url-pane">
+        <h4>输出</h4>
+        <textarea id="u-out" data-testid="tn-output" class="hc-input" spellcheck="false" readonly></textarea>
+      </div>
+    </div>
+
+    <div class="url-parse-card">
+      <h3 style="margin-bottom:6px">URL 解析</h3>
+      <p style="color:var(--muted);font-size:13px;margin-bottom:10px">粘贴完整 URL 自动拆解（含 query 参数表）。</p>
+      <input id="parse-in" data-testid="tn-url-parse-input" class="hc-input" type="text" placeholder="https://example.com/path?a=1&b=2#frag">
+      <div id="parse-err" class="err-banner" hidden></div>
+      <div class="url-fields" id="parse-fields" hidden>
+        <div class="k">protocol</div><div class="v" data-k="protocol"></div>
+        <div class="k">host</div><div class="v" data-k="host"></div>
+        <div class="k">hostname</div><div class="v" data-k="hostname"></div>
+        <div class="k">port</div><div class="v" data-k="port"></div>
+        <div class="k">pathname</div><div class="v" data-k="pathname"></div>
+        <div class="k">search</div><div class="v" data-k="search"></div>
+        <div class="k">hash</div><div class="v" data-k="hash"></div>
+      </div>
+      <table class="qtable" id="qtable" data-testid="tn-url-parse-table" hidden>
+        <thead><tr><th>键</th><th>值</th><th style="width:80px">操作</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </main>
+  <div id="site-footer"></div>
+  <script type="module" src="/src/pages/url/main.ts"></script>
+</body>
+</html>

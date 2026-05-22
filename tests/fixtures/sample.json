@@ -1,0 +1,32 @@
+{
+  "name": "ToolNest",
+  "version": "0.1.0",
+  "tools": [
+    {
+      "id": "timestamp",
+      "label": "Unix 时间戳互转",
+      "categories": [
+        "dev",
+        "utility"
+      ]
+    },
+    {
+      "id": "watermark",
+      "label": "豆包图片去水印",
+      "categories": [
+        "image"
+      ]
+    },
+    {
+      "id": "json",
+      "label": "JSON 格式化",
+      "categories": [
+        "dev"
+      ]
+    }
+  ],
+  "flags": {
+    "local": true,
+    "ads": false
+  }
+}

@@ -1,0 +1,36 @@
+/* ToolNest 设计 token —— 颜色、字体、阴影、圆角 */
+:root {
+  /* 色板 */
+  --cream: #FBF6EC;
+  --cream-2: #F5EFE2;
+  --ink: #0F1E2E;
+  --ink-2: #243447;
+  --muted: #5B6B7C;
+  --green: #22C55E;
+  --green-deep: #16A34A;
+  --green-soft: #DCFCE7;
+  --blue-soft: #DBEAFE;
+  --blue-deep: #1D4ED8;
+  --peach: #FCA5A5;
+  --peach-soft: #FEE2E2;
+  --peach-deep: #B91C1C;
+  --lilac: #DDD6FE;
+  --lilac-deep: #5B21B6;
+  --amber: #FDE68A;
+  --amber-deep: #92400E;
+  --paper: #FFFFFF;
+
+  /* 字体栈 */
+  --font-sans: "Plus Jakarta Sans", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Code", monospace;
+
+  /* 视觉常量 */
+  --stroke: 1.5px;
+  --shadow-hard: 6px 6px 0 var(--ink);
+  --shadow-mid: 4px 4px 0 var(--ink);
+  --shadow-soft: 2px 2px 0 var(--ink);
+  --radius-sm: 10px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 18px;
+}

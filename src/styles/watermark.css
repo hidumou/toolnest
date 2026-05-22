@@ -1,0 +1,177 @@
+/* 去水印工具页样式 */
+.wm-grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 22px;
+}
+@media (max-width: 880px) { .wm-grid { grid-template-columns: 1fr; } }
+
+.wm-panel {
+  background: var(--paper);
+  border: var(--stroke) solid var(--ink);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.wm-panel h4 {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.upload-zone {
+  border: 1.5px dashed var(--ink);
+  background: repeating-linear-gradient(
+    45deg,
+    var(--cream-2) 0px,
+    var(--cream-2) 12px,
+    var(--paper) 12px,
+    var(--paper) 24px
+  );
+  border-radius: var(--radius-md);
+  padding: 36px 20px;
+  text-align: center;
+  color: var(--ink-2);
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.upload-zone:hover { background: var(--cream-2); }
+.upload-zone.drag {
+  background: var(--green-soft);
+  border-color: var(--green-deep);
+  color: var(--green-deep);
+}
+.upload-zone small {
+  display: block;
+  font-weight: 500;
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+.corner-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+.corner-grid button {
+  border: var(--stroke) solid var(--ink);
+  background: var(--paper);
+  border-radius: var(--radius-sm);
+  padding: 8px;
+  font-weight: 600;
+  font-size: 12.5px;
+}
+.corner-grid button.active {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.slider-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.slider-row label { font-weight: 600; display:flex; justify-content:space-between; }
+input[type="range"] {
+  width: 100%;
+  accent-color: var(--green-deep);
+}
+
+.wm-stage {
+  position: relative;
+  background: var(--cream-2);
+  border: var(--stroke) solid var(--ink);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.compare-wrap {
+  position: relative;
+  border: var(--stroke) solid var(--ink);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  overflow: hidden;
+  user-select: none;
+  /* checkerboard for transparency */
+  background-image:
+    linear-gradient(45deg, #eee 25%, transparent 25%),
+    linear-gradient(-45deg, #eee 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #eee 75%),
+    linear-gradient(-45deg, transparent 75%, #eee 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0;
+}
+.compare-wrap canvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.compare-wrap .layer-after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  clip-path: inset(0 0 0 50%);
+}
+.compare-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 3px;
+  background: var(--green-deep);
+  cursor: ew-resize;
+}
+.compare-handle::after {
+  content: '↔';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--green);
+  color: #fff;
+  border: var(--stroke) solid var(--ink);
+  border-radius: 999px;
+  width: 32px; height: 32px;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800;
+  box-shadow: var(--shadow-soft);
+}
+
+.sel-overlay {
+  position: absolute;
+  border: 1.5px dashed var(--ink);
+  background: rgba(34, 197, 94, 0.22);
+  pointer-events: none;
+}
+
+.busy-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(251, 246, 236, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.empty-stage {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 14px;
+}

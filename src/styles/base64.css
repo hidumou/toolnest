@@ -1,0 +1,51 @@
+/* Base64 工具页样式 */
+.b64-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+@media (max-width: 880px) { .b64-grid { grid-template-columns: 1fr; } }
+
+.b64-pane h4 {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+
+.b64-pane textarea.hc-input {
+  min-height: 320px;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.upload-zone {
+  border: 1.5px dashed var(--ink);
+  background: var(--cream-2);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.12s ease;
+}
+.upload-zone:hover { background: var(--paper); }
+.upload-zone.drag { background: var(--green-soft); border-color: var(--green-deep); color: var(--green-deep); }
+
+.file-meta {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--ink-2);
+  background: var(--paper);
+  border: var(--stroke) solid var(--ink);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  margin-top: 12px;
+}
+.file-meta .name { font-weight: 700; }

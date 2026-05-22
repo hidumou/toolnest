@@ -1,0 +1,98 @@
+/* Unix 时间戳工具页样式 */
+
+.ts-now-bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.ts-now-clock {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+.ts-now-rel {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.ts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+@media (max-width: 880px) {
+  .ts-grid { grid-template-columns: 1fr; }
+}
+
+.ts-card {
+  background: var(--paper);
+  border: var(--stroke) solid var(--ink);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.ts-card h3 {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.ts-input-row {
+  display: flex;
+  gap: 8px;
+  align-items: stretch;
+}
+.ts-input-row .hc-input { flex: 1; }
+
+.ts-output {
+  background: var(--cream-2);
+  border: var(--stroke) solid var(--ink);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--ink);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  word-break: break-all;
+}
+.ts-output .v { flex: 1; }
+.ts-output .copy {
+  border: var(--stroke) solid var(--ink);
+  border-radius: var(--radius-sm);
+  padding: 5px 10px;
+  background: var(--paper);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.ts-human {
+  font-size: 15px;
+  color: var(--ink-2);
+  background: var(--green-soft);
+  border: var(--stroke) solid var(--ink);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  font-weight: 500;
+}
+
+.ts-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+select.hc-input {
+  font-family: var(--font-sans);
+  font-size: 13px;
+}

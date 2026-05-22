@@ -1,0 +1,97 @@
+/* JWT 工具页样式 */
+.jwt-input {
+  width: 100%;
+  min-height: 120px;
+  font-family: var(--font-mono);
+  word-break: break-all;
+  white-space: pre-wrap;
+}
+
+.jwt-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 18px;
+  margin-top: 22px;
+}
+@media (max-width: 980px) { .jwt-grid { grid-template-columns: 1fr; } }
+
+.jwt-card {
+  border: var(--stroke) solid var(--ink);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 240px;
+}
+.jwt-card.h-card { background: #F5F0FF; } /* lilac-soft */
+.jwt-card.p-card { background: #EFF6FF; } /* blue-soft */
+.jwt-card.s-card { background: #FFF7E6; } /* amber-soft */
+
+.jwt-card h3 {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.alg-callout {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--lilac-deep);
+}
+
+.kv-list {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 4px 12px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+.kv-list .k { color: var(--muted); font-weight: 600; }
+.kv-list .v { color: var(--ink); word-break: break-all; }
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border: var(--stroke) solid var(--ink);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+}
+.badge.expired { background: var(--peach-soft); color: var(--peach-deep); }
+.badge.alive { background: var(--green-soft); color: var(--green-deep); }
+
+.jwt-json {
+  background: var(--paper);
+  border: var(--stroke) solid var(--ink);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-all;
+  margin: 0;
+  max-height: 280px;
+  overflow: auto;
+}
+
+.sig-raw {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  background: var(--paper);
+  border: var(--stroke) solid var(--ink);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  word-break: break-all;
+}
+
+.unverified-note {
+  font-size: 12.5px;
+  color: var(--muted);
+}
