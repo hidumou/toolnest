@@ -182,115 +182,11 @@
       <p class="section-sub">记录 ToolNest 上线以来的每一次迭代。倒序排列，最近的版本在最上。</p>
     </div>
 
-    <ol class="cl-list">
-      <li class="cl-entry latest">
-        <div class="cl-side">
-          <div class="cl-ver">v0.7</div>
-          <div class="cl-date">2026-05-12</div>
-          <span class="cl-tag">最新</span>
-        </div>
-        <div class="cl-body">
-          <h3 class="cl-title">站点清理与体验优化</h3>
-          <ul>
-            <li>移除全部失效链接（登录、社交、关于/隐私/条款占位页）</li>
-            <li>删除 6 张「即将上线」占位卡片，避免误导</li>
-            <li>分类筛选改造为真功能，点击即可过滤工具卡</li>
-            <li>PICK 推荐区改为真实「更新日志」</li>
-            <li>修正过期版权（2025 → 当前年份），删除内部版本标记</li>
-          </ul>
-        </div>
-      </li>
+    <ol class="cl-list" id="cl-list"></ol>
 
-      <li class="cl-entry">
-        <div class="cl-side">
-          <div class="cl-ver">v0.6</div>
-          <div class="cl-date">JWT 上线</div>
-        </div>
-        <div class="cl-body">
-          <h3 class="cl-title">JWT 解码工具</h3>
-          <ul>
-            <li>本地拆解 JWT header / payload 三段</li>
-            <li>iat / nbf / exp 自动换算为人类可读时间</li>
-            <li>签名暂不校验，明确标注「未验证」状态</li>
-          </ul>
-        </div>
-      </li>
-
-      <li class="cl-entry">
-        <div class="cl-side">
-          <div class="cl-ver">v0.5</div>
-          <div class="cl-date">URL 上线</div>
-        </div>
-        <div class="cl-body">
-          <h3 class="cl-title">URL 编解码工具</h3>
-          <ul>
-            <li>encodeURIComponent / encodeURI 双模式切换</li>
-            <li>批量按行编解码，空行保留</li>
-            <li>完整 URL 自动拆解为 protocol / host / path / query 表格</li>
-          </ul>
-        </div>
-      </li>
-
-      <li class="cl-entry">
-        <div class="cl-side">
-          <div class="cl-ver">v0.4</div>
-          <div class="cl-date">Base64 上线</div>
-        </div>
-        <div class="cl-body">
-          <h3 class="cl-title">Base64 编解码工具</h3>
-          <ul>
-            <li>文本 ↔ Base64 双向转换，UTF-8 安全</li>
-            <li>URL-safe 变体支持</li>
-            <li>文件 → Base64 与 Base64 → 文件 双向直转，自动嗅探 MIME</li>
-          </ul>
-        </div>
-      </li>
-
-      <li class="cl-entry">
-        <div class="cl-side">
-          <div class="cl-ver">v0.3</div>
-          <div class="cl-date">JSON 上线</div>
-        </div>
-        <div class="cl-body">
-          <h3 class="cl-title">JSON 格式化工具</h3>
-          <ul>
-            <li>美化 / 压缩 / 键排序 / 转义 / 反转义</li>
-            <li>错误自动定位，可调缩进（2 / 4 / Tab）</li>
-            <li>支持粘贴自动美化、⌘/Ctrl + B、⌘/Ctrl + M 快捷键</li>
-          </ul>
-        </div>
-      </li>
-
-      <li class="cl-entry">
-        <div class="cl-side">
-          <div class="cl-ver">v0.2</div>
-          <div class="cl-date">去水印上线</div>
-        </div>
-        <div class="cl-body">
-          <h3 class="cl-title">豆包图片去水印</h3>
-          <ul>
-            <li>手动框选 / 自动扫描 / 灰白文字 三种擦除策略</li>
-            <li>处理前后滑动对比，原始分辨率导出 PNG</li>
-            <li>全程浏览器本地处理，不上传任何字节</li>
-          </ul>
-        </div>
-      </li>
-
-      <li class="cl-entry">
-        <div class="cl-side">
-          <div class="cl-ver">v0.1</div>
-          <div class="cl-date">首发</div>
-        </div>
-        <div class="cl-body">
-          <h3 class="cl-title">站点脚手架与时间戳互转</h3>
-          <ul>
-            <li>Unix 时间戳 ↔ ISO 8601 ↔ 自然语言时间互转</li>
-            <li>多时区切换、当前时间实时刷新</li>
-            <li>建立站点视觉系统与工具页通用框架</li>
-          </ul>
-        </div>
-      </li>
-    </ol>
+    <div class="cl-more" id="cl-more">
+      <a class="btn" href="/changelog/">查看全部更新日志 <span class="arrow">→</span></a>
+    </div>
   </div>
 </section>
 

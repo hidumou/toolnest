@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>更新日志 — ToolNest</title>
+  <meta name="description" content="ToolNest 站点全部更新日志，倒序排列，每一次重大 bug 修复与新功能上线都在这里。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/styles/tokens.css">
+  <link rel="stylesheet" href="/src/styles/base.css">
+  <link rel="stylesheet" href="/src/styles/components.css">
+  <link rel="stylesheet" href="/src/styles/home.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <main>
+    <section class="changelog-sec" id="changelog">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="pill"><span data-icon="bolt"></span> 更新日志</span>
+          <h2 class="section-title">站点更新日志（全部）</h2>
+          <p class="section-sub">每一次重大 bug 修复与新功能上线都在这里。倒序排列，最近的版本在最上。</p>
+        </div>
+
+        <ol class="cl-list" id="cl-list-all"></ol>
+
+        <div class="cl-more">
+          <a class="btn" href="/#changelog">回到首页 <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+  <script type="module" src="/src/pages/changelog/main.ts"></script>
+</body>
+</html>

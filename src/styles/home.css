@@ -571,6 +571,12 @@ section.changelog-sec .section-head { margin-bottom: 40px; }
   .cl-tag { margin-top: 0; }
 }
 
+.cl-more {
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+}
+
 /* BAND */
 section.band {
   background: var(--ink);

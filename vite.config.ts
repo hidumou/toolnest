@@ -2,7 +2,15 @@ import { defineConfig, type Plugin } from 'vite';
 import { resolve, dirname, join } from 'node:path';
 import { promises as fs } from 'node:fs';
 
-const TOOLS = ['timestamp', 'watermark', 'json', 'base64', 'url', 'jwt'] as const;
+/**
+ * 多页面入口名称。
+ * 既用于 dev 中间件把 /<name>/ 改写到 src/pages/<name>/index.html，
+ * 也用于 build closeBundle 把产物从 dist/src/pages/<name> 搬到 dist/<name>。
+ */
+const TOOLS = [
+  'timestamp', 'watermark', 'json', 'base64', 'url', 'jwt',
+  'changelog',
+] as const;
 
 /**
  * 让 /<tool>/ URL 在 dev 与 build 中都映射到 src/pages/<tool>/index.html。
@@ -60,6 +68,7 @@ export default defineConfig({
         base64: resolve(__dirname, 'src/pages/base64/index.html'),
         url: resolve(__dirname, 'src/pages/url/index.html'),
         jwt: resolve(__dirname, 'src/pages/jwt/index.html'),
+        changelog: resolve(__dirname, 'src/pages/changelog/index.html'),
       },
     },
   },
