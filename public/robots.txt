@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# 友好声明：本站全部为客户端本地处理的小工具，欢迎收录。
+# 站点地图
+Sitemap: https://tools.followto.us/sitemap.xml
+
+# LLM-friendly 索引（llmstxt.org）
+# /llms.txt
