@@ -24,6 +24,8 @@
   align-items: center;
   justify-content: space-between;
   gap: 8px;
+  /* 保证左右两栏头部等高（右侧有「复制」按钮），下方输入框 / 输出框对齐到同一水平线。 */
+  min-height: 28px;
 }
 
 .json-pane h4 {
